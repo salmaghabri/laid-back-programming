@@ -1,0 +1,56 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
+#pragma GCC optimize("unroll-loops")
+#include <bits/stdc++.h> 
+ 
+using namespace std;
+ 
+typedef long long ll;
+ll MOD = 998244353;
+double eps = 1e-12;
+#define fo(i,e) for(ll i = 0; i < e; i++)
+#define rforsn(i,s,e) for(ll i = s; i >= e; i--)
+#define ln "\n"
+#define dbg(x) cout<<#x<<" = "<<x<<ln
+#define INF 2e18
+#define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+ 
+
+int main()
+{
+ fast_cin();
+ ll t;
+ cin >> t;
+while(t--){
+    ll n, c;
+    char x,y; 
+    cin>>n>>c;  
+    string m[n]; 
+    fo(i,n) m[i]="ABCD";
+    fo(i,c){
+        fo(j, n){
+            cin>>x>>y; 
+            if(y=='T'){ m[j]=x; 
+            
+            }else{
+                int pos= m[j].find_first_of(x); 
+                if(pos !=-1)
+                m[j].erase(pos,1); 
+
+            }
+        }
+    }
+    fo(i,n) { 
+        string out=""; 
+        if(m[i].size()==1)
+        out=m[i]; 
+        if(m[i].size()>1) out="?";
+
+        if(i!= n-1) out+=" ";
+        cout<<out;
+         }
+    cout<<endl; 
+}
+
+ return 0;
+}
